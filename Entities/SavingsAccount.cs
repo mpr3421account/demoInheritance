@@ -20,5 +20,10 @@ namespace demoInheritance.Entities
         {
             Balance += Balance * InterestRate;
         }
+
+        public override void Withdraw(double amount)
+        {
+            Balance -= amount;
+        }
     }
 }
