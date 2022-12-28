@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace demoInheritance.Entities
 {
-    internal class SavingsAccount : Account
+    internal sealed class SavingsAccount : Account//adicionado sealed para que seja impossibilitado criar um sub classe de Savingsaccount
     {
         public double InterestRate { get; set; }
         public SavingsAccount() { }
@@ -23,8 +23,8 @@ namespace demoInheritance.Entities
 
         public override void Withdraw(double amount)
         {
-            base.Withdraw(amount);
-            Balance -= 2.0;
+            base.Withdraw(amount);//com o base o método foi reaproveitado da super classe account
+            Balance -= 2.0;//adiciona uma condição para essa classe SavingsAccount
         }
     }
 }
