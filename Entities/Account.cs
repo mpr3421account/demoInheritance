@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace demoInheritance.Entities
 {
-    internal class Account
+    internal abstract class Account
     {
         public int Number { get; protected set; }
         public string Holder { get; protected set; }
