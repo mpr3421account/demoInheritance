@@ -1,10 +1,25 @@
 ﻿using demoInheritance.Entities;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
-Account acc1 = new Account(1001, "alex", 500.0);//Classe abstrata não pode ser instanciada
-Account acc2 = new SavingsAccount(1002, "anna", 500.0, 0.01);
+List<Account> list = new List<Account>();
 
-acc1.Withdraw(10.0);
-acc2.Withdraw(10.0);
+list.Add(new SavingsAccount(1001, "Maria", 500.0, 0.01));
+list.Add(new BusinessAccount(1002, "Bob", 500.0, 800.0));
+list.Add(new SavingsAccount(1003, "Sucker", 500.0, 0.01));
+list.Add(new BusinessAccount(1004, "Fucker", 500.0, 900.0));
 
-Console.WriteLine(acc1.Balance);
-Console.WriteLine(acc2.Balance);
+double sum = 0.0;
+foreach(Account acc in list)
+{
+    sum += acc.Balance;
+}
+Console.WriteLine("Total balance sum: $ " + sum);
+foreach(Account acc in list)
+{
+    acc.Withdraw(10.0);
+}
+foreach(Account acc in list)
+{
+    Console.WriteLine(acc.Balance);
+}
